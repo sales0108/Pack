@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+
+    	<!-- caracter especial -->
+        <meta charset="utf-8">
+        <!-- Chrome, Firefox OS and Opera -->
+        <meta name="theme-color" content="blue">
+        <!--Import Google Icon Font-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!--cdn font awesome-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- Compiled and minified CSS -->                                      
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+        <!--Import materialize.css-->
+        <link rel="stylesheet" href="css/estilo.css"  media="screen,projection"/>
+        <!--Let browser know website is optimized for mobile-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <!--Import jQuery before materialize.js-->
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <!-- Compiled and minified JavaScript -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <!-- Javascript dos calculos -->
+        <script type="text/javascript" src="js/js.js"></script>
+        <!-- Importação do arquivo externo JS de conversão de moedas -->
+        <script type="text/javascript"src="js/conversorDeMoeda.js" charset="utf-8"></script>
+        <script> 
+        //Letreiro da bolsa de valores 
+        //DOLAR
+        converterMoeda("USD-BRL",1,"dolar_panel","compra");
+        converterMoeda("USD-BRL",1,"panel_vdolar","porcentageVariacao");
+         //EURO
+        converterMoeda("EUR-BRL",1,"euro_panel","compra");
+        converterMoeda("EUR-BRL",1,"panel_vdolar","porcentageVariacao");
+        //LIBRA
+        converterMoeda("GBP-BRL",1,"libra_panel","compra");
+        converterMoeda("GBP-BRL",1,"panel_vlibra","porcentageVariacao");
+        //PESO
+        converterMoeda("ARS-BRL",1,"peso_panel","compra");
+        converterMoeda("ARS-BRL",1,"panel_vpeso","porcentageVariacao");
+        //IENE
+        converterMoeda("JPY-BRL",1,"iene_panel","compra");
+        converterMoeda("JPY-BRL",1,"panel_viene","porcentageVariacao");
+        //Yuan
+        converterMoeda("CNY-BRL",1,"yaun_panel","compra");
+        converterMoeda("CNY-BRL",1,"panel_vyuan","porcentageVariacao");
+        //BITCOIN
+        converterMoeda("BTC-BRL",1,"yaun_panel","compra");
+        converterMoeda("BTC-BRL",1,"panel_vyuan","porcentageVariacao");
+        
+        //container da cotacao 
+        converterMoeda("USD-BRL",1,"dolar","compra");
+        converterMoeda("EUR-BRL",1,"euro","compra");     
+        converterMoeda("GBP-BRL",1,"libra","compra");
+        
+        </script>
+
+	</head>
+
+    <body">
+    <!---------------------- Cabeçalho testa menu ------------------------>
+        <header class="testa">
+            <div class="parallax"> 
+                <p class="sub-testa">[Não seja pego de surpresa]</p>
+            </div>
+        </header> 
+
+    <!------------------------------ Navbar --------------------------------->
+        <nav class="green accent-3 nav-wraper" id="inicio">
+            <div class="container ">
+                <a href="#" class="brand-logo"><i class="material-icons left">flight_takeoff</i>Pack</a> 
+                <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="#calc"><i class="material-icons left">attach_money</i>Cotação</a></li>
+                    <li><a href="#dese"><i class="material-icons left">code</i> Desenvolvedores</a></li>
+                </ul>
+            </div>
+
+    <!-----------------------------  Menu Para Dispositivos Moveis  ----------------------------->
+            <ul id="slide-out" class="side-nav green accent-3">
+                <li>
+                  <div class="user-view">
+                    <div class="background blue darken-2">
+                    </div>
+                    <a href="#!user"><img class="circle" src=""></a>
+                    <a href="#!name"><span class="white-text name">Trabalho Acadêmico</span></a>
+                  </div>
+                </li>
+                <li><a class="white-text" href="#calc"><i class="material-icons white-text">attach_money</i>Cotação</a></li>
+                <li><a class="white-text" href="#dese"><i class="material-icons white-text">code</i>Desenvolvedores</a></li>
+                <li><div class="divider"></div></li>
+                <li><a class="subheader"></a></li>
+            </ul>
+        </nav>
+
+    <!----------------------------- Letreiro da bolsa de valores -------------------------------->
+        <section>
+            <div class="marquee container yellow accent-3 shadow">
+                <div class="marqueeum">
+                    <!----- Moeda Yuan do letreiro contendo Cotação,variação e porcentagem-->
+                    YUAN R$<span class="black-text" id="yuan_panel" ></span>
+                        <span class="red-text" id="panel_vyuan"></span>
+                        <span class="red-text">%</span> 
+                    <!----- Moeda Euro do letreiro contendo Cotação,variação e porcentagem-->
+    	            EURO R$<span class="black-text" id="euro_panel"></span>  
+                        <span class="green-text" id="panel_veuro"></span>
+                        <span class="green-text">%</span> 
+    	            <!----- Moeda Peso do letreiro contendo Cotação,variação e porcentagem-->
+    	            PESO R$<span class="black-text" id="peso_panel"> </span>
+                          <span class="red-text" id="panel_vpeso"></span>
+                          <span class="red-text">%</span> 
+    	           <!----- Moeda Bitcoin do letreiro contendo Cotação,variação e porcentagem-->
+    	            BITCOIN R$<span class="black-text" id="bitcoin_panel" ></span>
+                          <span class="green-text" id="panel_vbitcoin"  ></span>
+                          <span class="green-text">%</span> 
+                    <!----- Moeda Dolar do letreiro contendo Cotação,variação e porcentagem-->
+    	            DÓLAR R$<span class="black-text" id="dolar_panel"> </span>
+                      <span class="green-text" id="panel_vdolar" ></span>
+                      <span class="green-text">%</span>
+                    <!----- Moeda Iene do letreiro contendo Cotação,variação e porcentagem-->
+    	            IENE R$<span class="black-text" id="iene_panel"></span>
+                          <span class="green-text" id="panel_viene" ></span>
+                          <span class="green-text">%</span>
+              	</div>
+            </div>
+        </section>
+
+    <!------------------------------ Container de Cotações ------------------------------------->
+    	<table id="id_table">
+    	    <h4 class="linha center-align" id="calc">Calcular Importação </h4>
+    	        <div class="row container">
+    	            <div class="col s12 m12 l12">
+                        <div class="card grey darken-3">
+                            <div class="card-content white-text">
+                                <span class="card-title">Cotações
+                                    <a class="label tooltipped waves-effect waves-light modal-trigger"   data-position="label" id="switch" data-tooltip="O Que é Cotação" href="#modal1">?</a>
+                                </span>
+                                DOLAR - <span class="card-subtitle" id="dolar"></span><br>
+                                LIBRA - <span class="card-subtitle" id="libra"></span></br>
+                                EURO - <span class="card-subtitle" id="euro"> </span>                     
+                            </div>
+                        </div>
+                    </div>
+   
+    	        <!--/div *  fecha aonde esta o marcador -->
+    <!------------------- Modal O Que é Cotação 1 ------------------->
+        <div id="modal1" class="modal">
+            <div class="modal-content">
+                <h4>O Que é Cotação</h4>
+                <p>A cotação é o preço, ou valor, de uma moeda estrangeira, este preço é estabelecido pelo mercado e pode sofrer variações constantes.</p>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Entendi</a>
+            </div>
+        </div>
+    <!------------------------- Container de Impostos de Importação ----------------------->                   
+        <div class="col s12 m12 l12">
+            <div class="card grey darken-3 sombra-shadow  ">
+                <div class="card-content white-text ">
+                    <span class="card-title center ">  IMPOSTO DE IMPORTAÇÃO:
+                        <a class="label tooltipped waves-effect waves-light modal-trigger"   data-position="label" id="switch" data-tooltip="O Que é Importação" href="#modal2">?</a>
+                    </span>
+                    <span class="card-title-su">Valor do produto (USD):</span>
+                        <input placeholder="Valor US$" id="txt_valor_produsd" onkeyup="calcular();" type="text" class="default" >
+                    <span class="card-title-su">Custo do frete (USD):</span>                   
+                        <input placeholder="Valor US$ " id="txt_custo_frete"  value="0" onkeyup="calcular();" type="text" class="default" >
+                    <span class="card-title-su" >Valor do produto (BRL):</span>
+                        <input placeholder="Valor R$" id="txt_valor_prodbr" type="text" class="default" readonly >
+                    <!--  Segunda parte do container parte de Atributos  -->
+                    <span class="card-title center ">TRIBUTOS:
+                        <a class="label tooltipped waves-effect waves-light modal-trigger"   data-position="label" id="switch" data-tooltip="O Que é Tributo" href="#modal3">?</a>
+                    </span>
+                    <span class="card-title-su">Imposto de importação (BRL):<br></span>
+                        <input placeholder="Taxa %" id="txt_result_impostos_importacao" type="text" class="default" readonly >
+                    <span class="card-title-su">ICMS (BRL):<br></span><BR>
+                        <input placeholder="Selecione a Alíquota" id="txt_result_icms" type="text" class="default" readonly>
+                    <span class="card-title-su" >IOF (BRL):</span>
+                        <input placeholder="Taxa %" id="txt_result_iof" type="text" class="default"  readonly>
+                </div>
+            </div>
+        </div>
+  
+    <!---------------------- Modal O Que é Importação 2 ----------------------->
+        <div id="modal2" class="modal">
+            <div class="modal-content">
+                <h4>O Que é Importação</h4>
+                <p>
+                        Importação é o processo comercial e fiscal que consiste em trazer um bem, que pode ser
+                        um produto ou um serviço, do exterior para o país de referência. É o ato de comprar mercadorias 
+                        ou produtos originados de outro país. Ou seja, os produtos são fabricados em outros países. 
+                        O imposto de importação é calculado aplicando a alíquota de importação sobre o valor total do produto.
+                        <br/><br/><strong>ICMS:<br/><br/>De acordo com o Decreto 2498/98, o ICMS deve incluir sua própria base de cáculo 
+                        no imposto, o qual incide sobre o valor já tributado pela importação. Dessa forma, para a determinação da base de 
+                        cálculo deve-se dividir o valor do produto já tributado pela alíquota complementar do ICMS e sobre esse valor aplicar
+                        novamente a taxa do ICMS."
+                </p>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Entendi</a>
+            </div>
+        </div>
+    <!--------------------- Modal O Que é Tributo 3 ---------------------------->
+        <div id="modal3" class="modal">
+            <div class="modal-content">
+                <h4>O Que é Tributo</h4>
+                <p>
+                    Os Tributos são valores que devem ser pagos ao poder público. São pagamentos obrigatórios onde a população deve 
+                    dar uma parte de sua renda para custear atividades do Estado, como operações de manutenção e desenvolvimento.<br><br>
+                    Todos os tributos são sempre criados e regulamentados por uma lei. Seu pagamento é sempre feito em dinheiro, 
+                    ou seja, não é possível usar outros bens, como veículos, por exemplo. Em algumas ocasiões específicas, torna-se 
+                    possível que a pessoa dê o seu móvel para pagamento de tributos, no caso de não ter nenhum dinheiro para abater a dívida.<br><br>
+                    Existem cinco espécies de tributos: impostos, taxas e contribuições de melhoria, empréstimos compulsórios e contribuições 
+                    parafiscais.<br>
+                    <B>Obs: Para o calculo ser realizado de forma correta selecione o estado para ser calculado o valor ICMS. </B>
+                </p>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Entendi</a>
+            </div>
+        </div>
+
+    <!-------------------------- Container de Taxas --------------------------------->                   
+        <div class="col s12 m6 l6">
+            <div class="card grey darken-3 sombra-shadow">
+                <div class="card-content white-text">
+                    <span class="card-title center "> TAXAS:
+                        <a class="label tooltipped waves-effect waves-light modal-trigger"   data-position="label" id="switch" data-tooltip="O Que é Taxa" href="#modal4">?</a>
+                    </span> 
+                    <span class="card-title-su">Conversão monetária:<br></span>
+                    <input placeholder="Cotação do Dia em R$" id="txt_monetaria" type="text" class="default" readonly>
+                    <span class="card-title-su">Imposto de importação (%):<br></span>
+                    <input placeholder="Taxa %" id="txt_impostos_importacao" type="text" class="default" readonly >
+                    <span class="card-title-su" >IOF (%):</span><br>
+                    <input placeholder="Taxa %" id="txt_iof" type="text" class="default" readonly> <br>
+                </div>
+            </div>
+        </div>
+    <!--------------------------- Modal O Que é Taxa 4 ---------------------->
+        <div id="modal4" class="modal">
+            <div class="modal-content">
+                <h4>O Que é Taxa</h4>
+                <p>
+                    O imposto ou taxa de importação, é um valor cobrado pela Receita Federal no 
+                    momento em que uma mercadoria é recebida no Brasil e passa pela fiscalização
+                    da RFB no centro de distribuição que recebeu o produto.   
+                </p>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Entendi</a>
+            </div>
+        </div>
+
+    <!------------------------------- Container Valor da aliquota ----------------------------->
+        <div class="col s12 m6 l6">
+            <div class="card grey darken-3 sombra-shadow">
+                <div class="card-content white-text">
+                    <span class="card-title center ">ALÍQUOTA DE ICMS:
+                        <a class="label tooltipped waves-effect waves-light modal-trigger"   data-position="label" id="switch" data-tooltip="O Que é Aliquota" href="#modal5">?</a>
+                    </span> 
+                        <span class="card-subtitle">Tipos de Envio:</span>
+                            <select name="" id="" class="browser-default black-text">
+                                <option value=""  selected>Correios</option>
+                            </select><br>
+                        <span class="card-subtitle">Estado :</span>
+                            <select name="" id="Escolha" class="browser-default black-text" onchange="PreencherAliq(),calcular();" >
+                                <option value="" disabled selected>Escolha uma opção</option>
+                                <option id="1" value="AC">AC</option>
+                                <option id="2" value="AL">AL</option>
+                                <option id="3" value="AP">AP</option>
+                                <option value="AM">AM</option>
+                                <option value="BA">BA</option>
+                                <option value="CE">CE</option>
+                                <option value="ES">ES</option>
+                                <option value="GO">GO</option>
+                                <option value="MA">MA</option>
+                                <option value="MT">MT</option>
+                                <option value="MS">MS</option>
+                                <option value="MG">MG</option>
+                                <option value="PA">PA</option>
+                                <option value="PB">PB</option>
+                                <option value="PR">PR</option>
+                                <option value="PE">PE</option>
+                                <option value="PI">PI</option>
+                                <option value="RJ">RJ</option>
+                                <option value="RN">RN</option>
+                                <option value="RS">RS</option>
+                                <option value="RO">RO</option>
+                                <option value="RR">RR</option>
+                                <option value="SC">SC</option>
+                                <option value="SP">SP</option>
+                                <option value="SE">SE</option>
+                                <option value="TO">TO</option>
+                            </select><br>
+                        <span class="card-subtitle" >Valor da alíquota:</span> 
+                        <input maxlength="3" placeholder="Taxa %"value="0" id="aliquota" type="text" class="" readonly>  
+                </div>
+            </div>
+        </div>
+
+    <!------------------------- Modal O Que é Aliquota 5 --------------------------->
+        <div id="modal5" class="modal">
+            <div class="modal-content">
+                <h4>O Que é Alíquota</h4>
+                <p>
+                    A Aliquota ela afeta o preço dos produtos que você irá comprar. Ela é um percentual ou um 
+                    valor fixo aplicado sobre uma quantia de dinheiro na hora de calcular diversos tipos de impostos.<br><br>
+                    O valor do ICMS da mercadoria será o resultado do preço do produto multiplicado pela alíquota 
+                    praticada no Estado de destino.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Entendi</a>
+            </div>
+        </div>
+                  
+    <!-------------------------------- Container de Totais ---------------------------------------->
+    	<div class="col s12 m12 l12">
+    	    <div class="card blue darken-1">
+    		    <div class="card-content white-text">
+    			    <span class="card-title">TOTAIS</span>
+    			    
+    			    <span class="card-subtitle" id="valor_final">Valor final com impostos (BRL):</span>                     
+    		    </div>
+    	    </div>
+        </div>
+    </div><!--* -->
+    </table>
+                     
+    <!-----------------------------------   Botoes  --------------------------------------->
+        <section class="center-align">
+            <button class="btn waves-effect waves-light green accent-3" id="" type="submit" name="action"><i class="material-icons left">done</i> Resumir</button>
+            <button class="btn waves-effect waves-light red darken-4" id="limpar" type="submit" name="action" onclick="botao_limpar();" ><i class="material-icons left">clear</i> Limpar</button>
+            <button class="btn waves-effect waves-light amber darken-4" id=""  type="submit" name="action"><i class="material-icons left">file_download</i> Download</button>
+        </section>        
+
+    <!---------------------------------- Time de Desenvolvedores ------------------------------------>
+    	<div class="container perfil-card" id="dese">
+    	    <h4 class="linha center-align">Desenvolvedores</h4>
+    	        <div class="row center">
+    <!--------------------------------- Desenvolvedora Paula --------------------------------->               
+    	            <div class="col s12 m6 l4"> <!-- s=small/m=medium/l=large -->
+    	                <div class="card blue darken-1 sombra-shadow">
+    	                    <div class="card-content white-text center-align">
+    	                        <img class="circle img-menor" src="img/PAULA.jpeg" alt="Paula Regina">
+    	                        <span class="card-title">Paula Regina</span>
+    	                        <p class="frase">"O segredo de um grande sucesso esta no trabalho de uma grande equipe".</p>
+    	                        <p class="profissao">Analista de Banco de Dados</p>
+    	                        <p class="universidade">Fatec Itaquaquecetuba</p>
+    	                    </div>
+        	                <div class="card-action center-align">
+        	                   <a href="#"><i class="fa fa-linkedin"></i></a>
+        	                   <a href="#"><i class="fa fa-instagram"></i></a>
+        	                   <a href="#"><i class="fa fa-facebook"></i></a>
+        	                </div>
+        	            </div>
+    	            </div>
+    <!--------------------------------- Desenvolvedor Samuel  --------------------------------->
+        	        <div class="col s12 m6 l4"> <!-- s=small/m=medium/l=large -->
+        	            <div class="card yellow accent-3 sombra-shadow">
+        	               <div class="card-content white-text center-align">
+        	                   <img class="circle img-menor" src="img/SAMUEL.jpeg" alt="Samuel Sales">
+        	                   <span class="card-title">Samuel Sales</span>
+        	                   <p class="frase">"O segredo de um grande sucesso esta no trabalho de uma grande equipe".</p>
+        	                   <p class="profissao">Desenvolvedor Back-End</p>
+        	                   <p class="universidade">Fatec Itaquaquecetuba</p>
+        	                </div>
+            	            <div class="card-action center-align">
+            	                <a href="#"><i class="fa fa-linkedin"></i></a>
+            	                <a href="#"><i class="fa fa-instagram"></i></a>
+            	                <a href="#"><i class="fa fa-facebook"></i></a>
+            	            </div>
+            	        </div>
+        	        </div>
+    <!--------------------------------- Desenvolvedora Gabriela --------------------------------->
+        	        <div class="col s12 m4 l4"> <!-- s=small/m=medium/l=large -->
+        	            <div class="card blue darken-1 sombra-shadow">
+        	                <div class="card-content white-text center-align">
+            	                <img class="circle img-menor" src="img/GABRIELA.jpeg" alt="Gabriela Oliveira">
+            	                <span class="card-title">Gabriela Oliveira</span>
+            	                <p class="frase">"O segredo de um grande sucesso esta no trabalho de uma grande equipe".</p>
+            	                <p class="profissao">Desenvolvedor Front-End</p>
+            	                <p class="universidade">Fatec Itaquaquecetuba</p>
+        	                </div>
+            	            <div class="card-action center-align">
+            	                <a href="#"><i class="fa fa-linkedin"></i></a>
+            	                <a href="#"><i class="fa fa-instagram"></i></a>
+            	                <a href="#"><i class="fa fa-facebook"></i></a>
+            	            </div>
+        	            </div>
+        	        </div>
+    <!--------------------------------- Desenvolvedora Victor  --------------------------------->
+                    <div class="col s12 m4 l4"> <!-- s=small/m=medium/l=large -->
+                        <div class="card blue darken-1 sombra-shadow">
+                            <div class="card-content white-text center-align">
+                                <img class="circle img-menor" src="img/VITOR.jpeg" alt="Gabriela Oliveira">
+                                <span class="card-title">Victor Lima</span>
+                                <p class="frase">"O segredo de um grande sucesso esta no trabalho de uma grande equipe".</p>
+                                <p class="profissao">Desenvolvedor Front-End</p>
+                                <p class="universidade">Fatec Itaquaquecetuba</p>
+                            </div>
+                            <div class="card-action center-align">
+                                <a href="#"><i class="fa fa-linkedin"></i></a>
+                                <a href="#"><i class="fa fa-instagram"></i></a>
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                            </div>
+                        </div>
+                    </div>
+        <!--------------------------------- Desenvolvedor Raul --------------------------------->
+
+        	        <div class="col s12 m4 l4"> <!-- s=small/m=medium/l=large -->
+        	            <div class="card yellow accent-3 sombra-shadow">
+        	                <div class="card-content white-text center-align">
+            	                <img class="circle img-menor" src="img/RAUL.jpeg" alt="Raul Oliveira">
+            	                <span class="card-title">Raul Oliveira</span>
+            	                <p class="frase">"O segredo de um grande sucesso esta no trabalho de uma grande equipe".</p>
+            	                <p class="profissao">Desenvolvedor Front-End</p>
+            	                <p class="universidade">Fatec Itaquaquecetuba</p>
+            	            </div>
+            	            <div class="card-action center-align">
+            	                <a href="#"><i class="fa fa-linkedin"></i></a>
+            	                <a href="#"><i class="fa fa-instagram"></i></a>
+            	                <a href="#"><i class="fa fa-facebook"></i></a>
+            	            </div>
+        	            </div>
+        	        </div>
+    <!--------------------------------- Desenvolvedor Eick --------------------------------->
+        	        <div class="col s12 m4 l4"> <!-- s=small/m=medium/l=large -->
+        	            <div class="card blue darken-1 sombra-shadow">
+        	                <div class="card-content white-text center-align">
+            	                <img class="circle img-menor" src="img/ERIK.png" alt="Erick Luz">
+            	                <span class="card-title">Erick Luz</span>
+            	                <p class="frase">"O segredo de um grande sucesso esta no trabalho de uma grande equipe".</p>
+            	                <p class="profissao">Desenvolvedor Back-End</p>
+            	                <p class="universidade">Fatec Itaquaquecetuba</p>
+            	            </div>
+        	                <div class="card-action center-align">
+        	                    <a href="#"><i class="fa fa-linkedin"></i></a>
+        	                    <a href="#"><i class="fa fa-instagram"></i></a>
+        	                    <a href="#"><i class="fa fa-facebook"></i></a>
+        	                </div>
+        	            </div>
+        	        </div>
+
+    	        </div>
+    	    </div>
+
+    <!----------------------------------------- Rodapé -------------------------------------------->
+        <footer class="page-footer blue darken-1">
+            <div class="container">
+                <div class="row">
+                    <div class="col l6 s12">
+                        <h5 class="white-text">Calculadora de Impostos</h5>
+                        <p class="grey-text text-lighten-4">Trabalho Acadêmico.</p>
+                    </div>
+                    <div class="col l4 offset-l2 s12">
+                        <h5 class="white-text">Menu</h5>
+                        <ul>
+                            <li><a class="grey-text text-lighten-3" href="#calc">Calcular</a></li>
+                            <li><a class="grey-text text-lighten-3" href="#dese">Desenvolvedores</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+                <div class="footer-copyright yellow accent-3">
+                    <div class="container black-text center-align">
+                        © 2020 Copyright Trabalho Acadêmico
+                    </div>
+                </div>
+        </footer>
+    <!-------------------------------------------------------------------------------------------------->
+    	<!--Import jQuery before materialize.js
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>-->
+        <!-- Compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+        <!-- arquivo js -->
+        <!-- <script type="text/javascript" src="js.js"></script> -->
+    </body>
+</html>

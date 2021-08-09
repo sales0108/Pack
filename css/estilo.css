@@ -1,0 +1,107 @@
+/*importação de fontes css*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@1,300&display=swap');
+
+/*reseta o css*/
+*{
+	padding: 0;
+	margin: 0;
+}
+
+/*testa menu*/
+header.testa{
+	background-image: no-repeat;
+	height: 30em;
+	margin: 0 auto;
+}
+
+/*titulo testa*/
+.titulo-testa{
+
+}
+
+/*subtitulo testa*/
+p.sub-testa{
+	padding-top: 6em;
+	text-align: center;
+	font-size: 2em;
+	font-family: 'Poppins', sans-serif;
+	text-transform: uppercase;
+	color: white;
+}
+
+/*efeito parallax*/
+div.parallax{
+	width: 100%;
+	height: 30em;
+	background-image: url(../img/logistica.jpg);
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+/*letreiro*/
+div.marquee{
+	width: 80%;
+	border-radius: 10px;
+	height: 50px;
+	margin-top: 10px;
+
+	align-items: center;
+	display: flex;
+	overflow: hidden;
+	white-space: nowrap;
+}
+div.marqueeum {
+	animation: marqueeum 15s linear infinite running;
+	display: inline-block;
+	width: 100%;
+
+}
+@keyframes marqueeum{
+	0% { 
+		transform: translate(0, 0); 
+	}
+	100% {
+		transform: translate(-100%, 0);
+	}
+}
+
+/*Calculo de imposto*/
+form.formulario{
+	margin-top: 10px;
+}
+
+/*Desenvolvedores*/
+.linha::after {
+	content: '';
+	display: block;
+	width: 100px;
+	border-top: 1px solid #2dc7d0;
+	margin: 15px auto;
+}
+img.img-menor{
+	width: 10em;
+}
+p.frase{
+	font-family: 'Roboto Condensed', sans-serif;
+}
+p.profissao{
+	padding-top: 10px;
+}
+p.universidade{
+	padding-top: 5px;
+	text-transform: uppercase;
+	font-size: 0.9em;
+}
+div.sombra-shadow:hover{
+	box-shadow: 5px 10px 20px #42a5f5;
+	border-radius: 10px;
+}
+.card{
+	transition: .5s;
+	background: #eee;
+}
+.card:hover{
+	color: #c2185b;
+	transform: scale(1.03);
+}
